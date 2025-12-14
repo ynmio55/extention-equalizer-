@@ -4,4 +4,4 @@
 ไปที่ chrome://extensions/
 เปิด Developer mode
 คลิก Load unpacked
-เลือกโฟลเดอร์ extention-equalizer2\extension
+เลือกโฟลเดอร์ extention-equalizer\extension
