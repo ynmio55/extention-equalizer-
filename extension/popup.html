@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monster MQT52 EQ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                        <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="brand">MONSTER</span>
+                    <span class="model">MQT52 EQ</span>
+                </div>
+            </div>
+            <div class="power-toggle">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="togglePower" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </header>
+
+        <!-- Status -->
+        <div class="status-bar" id="statusBar">
+            <span class="status-dot"></span>
+            <span class="status-text" id="statusText">พร้อมใช้งาน</span>
+        </div>
+
+        <!-- Presets -->
+        <section class="presets-section">
+            <div class="presets-grid">
+                <button class="preset-btn active" data-preset="flat">ปกติ</button>
+                <button class="preset-btn" data-preset="bass">Bass</button>
+                <button class="preset-btn" data-preset="treble">Treble</button>
+                <button class="preset-btn" data-preset="vocal">Vocal</button>
+                <button class="preset-btn" data-preset="gaming">Gaming</button>
+                <button class="preset-btn" data-preset="movie">Movie</button>
+                <button class="preset-btn" data-preset="pop">Pop</button>
+                <button class="preset-btn" data-preset="rock">Rock</button>
+            </div>
+        </section>
+
+        <!-- Equalizer -->
+        <section class="eq-section">
+            <div class="eq-container">
+                <div class="eq-band">
+                    <span class="eq-freq">32</span>
+                    <input type="range" class="eq-slider" data-freq="32" min="-12" max="12" value="0" orient="vertical">
+                    <span class="eq-value">0</span>
+                </div>
+                <div class="eq-band">
+                    <span class="eq-freq">64</span>
+                    <input type="range" class="eq-slider" data-freq="64" min="-12" max="12" value="0" orient="vertical">
+                    <span class="eq-value">0</span>
+                </div>
+                <div class="eq-band">
+                    <span class="eq-freq">125</span>
+                    <input type="range" class="eq-slider" data-freq="125" min="-12" max="12" value="0" orient="vertical">
+                    <span class="eq-value">0</span>
+                </div>
+                <div class="eq-band">
+                    <span class="eq-freq">250</span>
+                    <input type="range" class="eq-slider" data-freq="250" min="-12" max="12" value="0" orient="vertical">
+                    <span class="eq-value">0</span>
+                </div>
+                <div class="eq-band">
+                    <span class="eq-freq">500</span>
+                    <input type="range" class="eq-slider" data-freq="500" min="-12" max="12" value="0" orient="vertical">
+                    <span class="eq-value">0</span>
+                </div>
+                <div class="eq-band">
+                    <span class="eq-freq">1k</span>
+                    <input type="range" class="eq-slider" data-freq="1000" min="-12" max="12" value="0" orient="vertical">
+                    <span class="eq-value">0</span>
+                </div>
+                <div class="eq-band">
+                    <span class="eq-freq">2k</span>
+                    <input type="range" class="eq-slider" data-freq="2000" min="-12" max="12" value="0" orient="vertical">
+                    <span class="eq-value">0</span>
+                </div>
+                <div class="eq-band">
+                    <span class="eq-freq">4k</span>
+                    <input type="range" class="eq-slider" data-freq="4000" min="-12" max="12" value="0" orient="vertical">
+                    <span class="eq-value">0</span>
+                </div>
+                <div class="eq-band">
+                    <span class="eq-freq">8k</span>
+                    <input type="range" class="eq-slider" data-freq="8000" min="-12" max="12" value="0" orient="vertical">
+                    <span class="eq-value">0</span>
+                </div>
+                <div class="eq-band">
+                    <span class="eq-freq">16k</span>
+                    <input type="range" class="eq-slider" data-freq="16000" min="-12" max="12" value="0" orient="vertical">
+                    <span class="eq-value">0</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volume & Bass Boost -->
+        <section class="controls-section">
+            <div class="control-row">
+                <span class="control-label">Volume</span>
+                <input type="range" class="control-slider" id="volumeSlider" min="0" max="150" value="100">
+                <span class="control-value" id="volumeValue">100%</span>
+            </div>
+            <div class="control-row">
+                <span class="control-label">Bass Boost</span>
+                <input type="range" class="control-slider" id="bassBoostSlider" min="0" max="12" value="0">
+                <span class="control-value" id="bassBoostValue">0dB</span>
+            </div>
+        </section>
+
+        <!-- Reset Button -->
+        <button class="btn-reset" id="btnReset">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="1,4 1,10 7,10"></polyline>
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+            </svg>
+            รีเซ็ตทั้งหมด
+        </button>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+/* ============================================
+   Monster MQT52 Chrome Extension - Popup Styles
+   ============================================ */
+
+:root {
+    --primary: #00d4ff;
+    --primary-dark: #0099cc;
+    --primary-glow: rgba(0, 212, 255, 0.3);
+    --accent: #ff00aa;
+    --bg-dark: #0a0a0f;
+    --bg-card: rgba(20, 20, 30, 0.95);
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0b0;
+    --text-muted: #606070;
+    --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kanit', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    width: 340px;
+    min-height: 400px;
+}
+
+.popup-container {
+    padding: 16px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.logo-icon svg {
+    width: 20px;
+    height: 20px;
+    color: white;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.logo-text .brand {
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 1px;
+}
+
+.logo-text .model {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 22px;
+    transition: all 0.3s ease;
+}
+
+.toggle-slider::before {
+    position: absolute;
+    content: '';
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background: var(--text-secondary);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+    background: var(--gradient-primary);
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+    transform: translateX(18px);
+    background: white;
+}
+
+/* Status Bar */
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #00ff88;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.status-bar.inactive .status-dot {
+    background: #ff4444;
+    animation: none;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.status-text {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* Presets */
+.presets-section {
+    margin-bottom: 12px;
+}
+
+.presets-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.preset-btn {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    padding: 8px 4px;
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.preset-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.preset-btn.active {
+    background: rgba(0, 212, 255, 0.15);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* Equalizer */
+.eq-section {
+    margin-bottom: 12px;
+}
+
+.eq-container {
+    display: flex;
+    justify-content: space-between;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: 12px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.eq-band {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.eq-freq {
+    font-size: 0.55rem;
+    color: var(--text-muted);
+}
+
+.eq-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 80px;
+    height: 6px;
+    background: transparent;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    margin: 30px -27px;
+}
+
+.eq-slider::-webkit-slider-track {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+}
+
+.eq-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: var(--primary);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -4px;
+    box-shadow: 0 0 8px var(--primary-glow);
+}
+
+.eq-value {
+    font-size: 0.6rem;
+    color: var(--text-secondary);
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Controls */
+.controls-section {
+    margin-bottom: 12px;
+}
+
+.control-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.control-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    min-width: 70px;
+}
+
+.control-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    outline: none;
+}
+
+.control-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: var(--primary);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 8px var(--primary-glow);
+}
+
+.control-value {
+    font-size: 0.75rem;
+    color: var(--primary);
+    min-width: 40px;
+    text-align: right;
+}
+
+/* Reset Button */
+.btn-reset {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.btn-reset:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-reset svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Disabled State */
+.popup-container.disabled .eq-slider,
+.popup-container.disabled .control-slider,
+.popup-container.disabled .preset-btn {
+    opacity: 0.5;
+    pointer-events: none;
+}

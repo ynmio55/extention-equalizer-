@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Audio Equalizer",
+  "version": "1.0.0",
+  "description": "ปรับเสียง Equalizer สำหรับ YouTube",
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["https://www.youtube.com/*", "https://youtube.com/*"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
